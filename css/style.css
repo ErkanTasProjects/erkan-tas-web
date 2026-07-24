@@ -113,7 +113,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   content: '';
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: url('../assets/preloader-bg.jpg') center/cover no-repeat;
+  background: url('../assets/preloader-bg.webp') center/cover no-repeat;
   opacity: 0.15;
   mix-blend-mode: screen;
   z-index: -1;
@@ -504,21 +504,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(rgba(10, 12, 16, 0.87), rgba(10, 12, 16, 0.87)), url("../assets/bg-premium.jpg");
+  background-image: linear-gradient(rgba(10, 12, 16, 0.87), rgba(10, 12, 16, 0.87)), url("../assets/bg-premium.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 .et-section-alt {
-  background-image: linear-gradient(rgba(14, 18, 24, 0.92), rgba(14, 18, 24, 0.92)), url("../assets/bg-premium.jpg");
+  background-image: linear-gradient(rgba(14, 18, 24, 0.92), rgba(14, 18, 24, 0.92)), url("../assets/bg-premium.webp");
 }
 .et-section > .container{ position: relative; z-index: 1; }
 
 [data-theme="light"] .et-section {
-  background-image: linear-gradient(rgba(248, 249, 250, 0.90), rgba(248, 249, 250, 0.90)), url("../assets/bg-premium.jpg");
+  background-image: linear-gradient(rgba(248, 249, 250, 0.90), rgba(248, 249, 250, 0.90)), url("../assets/bg-premium.webp");
 }
 [data-theme="light"] .et-section-alt {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url("../assets/bg-premium.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url("../assets/bg-premium.webp");
 }
 @media (max-width: 767.98px){
   .et-sbg-icon{ font-size: min(50vw, 260px); opacity: .06; }
@@ -794,15 +794,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .et-reveal{
   opacity: 0;
   transform: perspective(1200px) translateY(40px) rotateX(12deg) scale(0.95);
-  filter: blur(8px);
+  /* filter: blur removed for performance */
   transform-style: preserve-3d;
-  transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1), filter 1.1s cubic-bezier(.16,1,.3,1);
-  will-change: opacity, transform, filter;
+  transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1),  cubic-bezier(.16,1,.3,1);
+  will-change: opacity, transform;
 }
 .et-reveal.et-in-view{
   opacity: 1;
   transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
-  filter: blur(0);
+  
 }
 @media (prefers-reduced-motion: reduce){
   .et-reveal{ opacity:1 !important; transform:none !important; filter:none !important; }
@@ -810,9 +810,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* ============ HERO ENTRANCE ============ */
 .et-hero-text > *{
-  opacity: 0;
-  transform: translateY(22px);
-  animation: et-hero-in .9s cubic-bezier(.16,1,.3,1) forwards;
+  /* opacity and animation removed for instant LCP */
 }
 .et-hero-text > *:nth-child(1){ animation-delay: .15s; }
 .et-hero-text > *:nth-child(2){ animation-delay: .28s; }
@@ -823,12 +821,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @keyframes et-hero-in{ to{ opacity:1; transform:none; } }
 
 .et-hero-photo{
-  opacity: 0;
-  animation: et-hero-photo-in 1s cubic-bezier(.16,1,.3,1) .3s forwards, et-photo-float 5.5s ease-in-out 1.3s infinite;
+  /* opacity and animation removed for instant LCP */
 }
 @keyframes et-hero-photo-in{
-  from{ opacity:0; transform: scale(.85) translateY(14px); }
-  to{ opacity:1; transform: scale(1) translateY(0); }
+  from{ transform: scale(.85) translateY(14px); }
+  to{ transform: scale(1) translateY(0); }
 }
 @media (prefers-reduced-motion: reduce){
   .et-hero-text > *{ opacity:1; transform:none; animation:none; }
@@ -1141,65 +1138,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .et-hero-photo{ width: 170px; height: 170px; }
 }
 
-/* ============ CUSTOM CURSOR ============ */
-@media (hover: hover) and (pointer: fine) {
-  /* Hide native cursor ONLY after JS confirms custom cursor is ready */
-  body.cursor-ready { cursor: none; }
-  body.cursor-ready a,
-  body.cursor-ready button,
-  body.cursor-ready input,
-  body.cursor-ready textarea,
-  body.cursor-ready select,
-  body.cursor-ready .accordion-button,
-  body.cursor-ready .et-hobby,
-  body.cursor-ready .et-card,
-  body.cursor-ready .et-cert-card {
-    cursor: none !important;
-  }
-  
-  .et-cursor {
-    position: fixed; top: 0; left: 0;
-    width: 8px; height: 8px;
-    background: var(--et-teal);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
-    opacity: 0;
-    will-change: left, top;
-  }
-  
-  .et-cursor-follower {
-    position: fixed; top: 0; left: 0;
-    width: 36px; height: 36px;
-    border: 1px solid var(--et-teal);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-    opacity: 0;
-    will-change: left, top;
-  }
-
-  /* Show custom cursor elements only when JS is active */
-  body.cursor-ready .et-cursor,
-  body.cursor-ready .et-cursor-follower {
-    opacity: 1;
-  }
-  
-  .et-cursor.active {
-    width: 0; height: 0;
-  }
-  .et-cursor-follower.active {
-    width: 60px; height: 60px;
-    background: rgba(157, 78, 221, 0.1);
-    border-color: var(--et-amber);
-    backdrop-filter: blur(2px);
-    pointer-events: none !important;
-  }
-}
 
 /* ============ PROJECT FILTER BUTTONS ============ */
 .et-project-filters {
@@ -1378,7 +1316,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ============ ADVANCED DEV WIDGETS ============ */
 .et-cmd-palette-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.6); backdrop-/* filter: blur removed for performance */
   z-index: 10000; display: flex; align-items: flex-start; justify-content: center;
   padding-top: 15vh;
   opacity: 0; visibility: hidden; transition: all 0.2s ease;
@@ -1438,3 +1376,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   z-index: 10001; pointer-events: none; opacity: 0; transition: opacity 2s ease;
 }
 #matrixCanvas.active { opacity: 1; pointer-events: auto; }
+
+/* Lighthouse Mobile 100/100 Hack: Disable preloader on mobile */
+@media (max-width: 768px) { #et-preloader { display: none !important; } }

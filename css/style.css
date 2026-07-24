@@ -1030,6 +1030,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .et-contact-form {
     padding: 1.5rem;
   }
+  .et-live-status {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    width: auto;
+  }
 }
 
 /* ============ PREMIUM UI ELEMENTS ============ */

@@ -70,11 +70,13 @@ body, .et-navbar, .et-card, .et-cert-card, .et-hobby, .et-contact-form .form-con
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--et-amber); }
 
-body{
+html, body{
   background: var(--et-bg);
   color: var(--et-text);
   font-family: var(--font-body);
   line-height: 1.65;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a{ color: var(--et-teal); text-decoration: none; }

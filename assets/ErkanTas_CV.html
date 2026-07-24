@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erkan Taş - CV</title>
+  <style>
+    @page { size: A4; margin: 20mm; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .cv-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 2px solid #222;
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-info { text-align: left; }
+    h1 { margin: 0; font-size: 32px; letter-spacing: 1px; }
+    .subtitle { font-size: 16px; color: #555; margin-top: 5px; }
+    .contact-info { margin-top: 10px; font-size: 14px; color: #444; }
+    .contact-info a { color: #0056b3; text-decoration: none; }
+    
+    section { margin-bottom: 25px; }
+    h2 {
+      font-size: 20px;
+      color: #0056b3;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    .item { margin-bottom: 15px; }
+    .item-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .item-title { font-weight: bold; font-size: 16px; }
+    .item-date { font-size: 14px; color: #666; font-style: italic; }
+    .item-desc { margin-top: 5px; font-size: 14px; text-align: justify; }
+    
+    ul { margin: 5px 0 0 20px; padding: 0; font-size: 14px; }
+    li { margin-bottom: 4px; }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    @media print {
+      body { background: #fff; padding: 0; }
+      .cv-container { box-shadow: none; max-width: 100%; padding: 0; }
+      @page { margin: 15mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <header>
+      <div class="header-info">
+        <h1>Erkan Taş</h1>
+        <div class="subtitle">Siyaset Bilimi ve Uluslararası İlişkiler | Web Tasarımı ve Kodlama</div>
+        <div class="contact-info">
+          Tekirdağ, Ergene, Yeşiltepe Mah. 216. Sok. No:1<br>
+          erkan.tas.dev@gmail.com | <a href="../index.html">Online Portfolyo</a>
+        </div>
+      </div>
+      <img src="profile.jpg" alt="Erkan Taş" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;">
+    </header>
+
+    <section>
+      <h2>Profil</h2>
+      <p style="font-size: 14px; text-align: justify;">İnönü Üniversitesi'nde Siyaset Bilimi ve Uluslararası İlişkiler eğitimimi sürdürürken, eş zamanlı olarak Anadolu Üniversitesi'nde Web Tasarımı ve Kodlama alanında akademik ve pratik birikim edinmekteyim. Amacım, küresel meseleleri analiz etme becerimi, teknolojinin sunduğu somut çözüm yöntemleriyle disiplinli bir şekilde bütünleştirmektir. Analitik bakış açısını teknik üretim becerisiyle birleştiren, disiplinler arası bir çalışma anlayışına sahibim.</p>
+    </section>
+
+    <section>
+      <h2>Eğitim</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">İnönü Üniversitesi</span>
+          <span class="item-date">Devam Ediyor</span>
+        </div>
+        <div class="item-desc">Siyaset Bilimi ve Uluslararası İlişkiler (Lisans)</div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Anadolu Üniversitesi</span>
+          <span class="item-date">Devam Ediyor</span>
+        </div>
+        <div class="item-desc">Web Tasarımı ve Kodlama (Önlisans)</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Deneyim</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Süreç Danışmanlığı — Diş Hastanesi</span>
+        </div>
+        <div class="item-desc">Bir diş hastanesinde hasta yönlendirme ve süreç danışmanlığı yaparak, müşteri ilişkileri ve operasyonel iletişim konusunda deneyim kazandım.</div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">İletişim Görevlisi — Fabrika</span>
+        </div>
+        <div class="item-desc">Fabrika ortamında iç ve dış iletişim süreçlerini yürüterek, ekipler arası koordinasyon ve hızlı problem çözme yeteneğimi geliştirdim.</div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Topluluk Yönetimi — Uluslararası İlişkiler</span>
+        </div>
+        <div class="item-desc">Uluslararası ilişkiler alanında bir öğrenci topluluğunda görev alarak organizasyon, etkinlik yönetimi ve liderlik deneyimi edindim.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projeler</h2>
+      <div class="item">
+        <span class="item-title">Uluslararası İşletmelerde Çoklu Kriz Çalışması (TÜBİTAK 2209-A)</span>
+        <div class="item-desc">Uluslararası işletmelerin çoklu kriz dönemlerinde geliştirdiği stratejileri inceleyen akademik araştırma projesi.</div>
+      </div>
+      <div class="item">
+        <span class="item-title">Diplomasi Hub</span>
+        <div class="item-desc">Güncel diplomatik gelişmelerin ve akademik içeriklerin bir araya getirildiği bilgi platformu geliştirme çalışması.</div>
+      </div>
+      <div class="item">
+        <span class="item-title">İngilizce Ders Çalışma Defteri</span>
+        <div class="item-desc">Pedagojik hedeflere uygun, kişisel dil öğrenimi için özel olarak tasarlanıp geliştirilen kapsamlı İngilizce çalışma defteri.</div>
+      </div>
+      <div class="item">
+        <span class="item-title">Mini Python Quiz Uygulaması</span>
+        <div class="item-desc">Kullanıcıların programlama bilgilerini test edebileceği, interaktif ve dinamik Python tabanlı terminal uygulaması.</div>
+      </div>
+      <div class="item">
+        <span class="item-title">React Native Mobil Uygulama Geliştirme</span>
+        <div class="item-desc">Modern mobil arayüz standartlarına uygun olarak tasarlanan, çapraz platform destekli React Native uygulama projeleri.</div>
+      </div>
+      <div class="item">
+        <span class="item-title">Hilvanfest 2026</span>
+        <div class="item-desc">Sosyal sorumluluk projesi kapsamında toplumsal fayda odaklı organizasyon ve saha koordinasyonu.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Yetkinlikler & Sertifikalar</h2>
+      <div class="skills-grid">
+        <div>
+          <strong>Teknik & Genel Beceriler:</strong>
+          <ul>
+            <li>Web Geliştirme (HTML, CSS, JS)</li>
+            <li>Yapay Zeka Destekli Geliştirme</li>
+            <li>Sosyal Medya Yönetimi</li>
+            <li>Takım Liderliği & İletişim</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Sertifikalar:</strong>
+          <ul>
+            <li>Profesyonel Atletizm Sertifikası</li>
+            <li>Dijital Verimlilik ve Sosyal Medya</li>
+            <li>Girişimcilik Temelleri</li>
+            <li>AntCloud Sertifikası</li>
+            <li>Mobil Uygulama Geliştirme</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

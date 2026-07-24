@@ -438,14 +438,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   width: 280px; height: 280px;
   margin: 0 auto;
   border-radius: 50%;
-  perspective: 900px;
-  transform-style: preserve-3d;
+  /* Removed perspective and preserve-3d to fix iOS Safari GPU crash */
 }
 .et-hero-photo::before{
   content:"";
   position:absolute; inset:-7px;
   border-radius:50%;
-  background: conic-gradient(from 0deg, var(--et-teal), var(--et-blue), var(--et-amber), var(--et-teal));
+  background: linear-gradient(135deg, var(--et-teal), var(--et-blue), var(--et-amber), var(--et-teal));
   animation: et-ring-spin 10s linear infinite;
   z-index:0;
 }

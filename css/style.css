@@ -1032,15 +1032,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .et-contact-form {
     padding: 1.5rem;
   }
-  .et-live-status {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30px;
-    padding: 6px 14px;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    width: auto;
-  }
 }
 
 /* ============ PREMIUM UI ELEMENTS ============ */
@@ -1369,6 +1360,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 8px 16px; display: flex; align-items: center; gap: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-size: 0.85rem;
   font-family: var(--font-mono); color: #bbb;
+}
+@media (max-width: 767.98px) {
+  .et-live-status {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    width: auto;
+  }
 }
 .et-status-indicator {
   width: 8px; height: 8px; background: #27c93f; border-radius: 50%;

@@ -575,7 +575,7 @@ function initThemeToggle() {
   const icon = document.querySelector('#themeToggle i');
   if (icon) icon.className = initial === 'light' ? 'bi bi-moon-stars' : 'bi bi-sun';
 
-  btn.addEventListener('click', (e) => {
+  btn?.addEventListener('click', (e) => {
     e.preventDefault();
     const next = currentTheme === 'light' ? 'dark' : 'light';
     applyTheme(next);
@@ -600,18 +600,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
 
   applyLanguage('tr');
-  document.getElementById('langToggle').addEventListener('click', (e) => {
+  document.getElementById('langToggle')?.addEventListener('click', (e) => {
     e.preventDefault();
     applyLanguage(currentLang === 'tr' ? 'en' : 'tr');
   });
 
   const searchForm = document.getElementById('siteSearchForm');
   const searchInput = document.getElementById('siteSearchInput');
-  searchForm.addEventListener('submit', e => {
+  searchForm?.addEventListener('submit', e => {
     e.preventDefault();
     runSearch(searchInput.value);
   });
-  searchInput.addEventListener('input', () => runSearch(searchInput.value));
+  searchInput?.addEventListener('input', () => runSearch(searchInput.value));
   document.addEventListener('click', e => {
     if (!e.target.closest('.et-search') && !e.target.closest('.et-search-results')) {
       document.getElementById('searchResults').classList.remove('show');
@@ -622,15 +622,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Defer heavy non-critical initializations to unblock main thread
   setTimeout(() => {
-    initHeroCanvas();
-    initHeroParallax();
-    initFaqLogging();
-    initScrollReveal();
-    initSkillBars();
-    initVanillaTilt();
+    try { initHeroCanvas(); } catch(e){}
+    try { initHeroParallax(); } catch(e){}
+    try { initFaqLogging(); } catch(e){}
+    try { initScrollReveal(); } catch(e){}
+    try { initSkillBars(); } catch(e){}
+    try { initVanillaTilt(); } catch(e){}
   }, 500);
-  typeWriter();
-  initProjectFilters();
+  try { typeWriter(); } catch(e){}
+  try { initProjectFilters(); } catch(e){}
 
   function initProjectFilters() {
     const btns = document.querySelectorAll('.et-filter-btn');
@@ -677,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Contact form handling with Formspree AJAX
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
-  form.addEventListener('submit', async (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
       form.reportValidity();

@@ -575,7 +575,7 @@ function initThemeToggle() {
   const icon = document.querySelector('#themeToggle i');
   if (icon) icon.className = initial === 'light' ? 'bi bi-moon-stars' : 'bi bi-sun';
 
-  btn?.addEventListener('click', (e) => {
+  if (btn) btn.addEventListener('click', (e) => {
     e.preventDefault();
     const next = currentTheme === 'light' ? 'dark' : 'light';
     applyTheme(next);
@@ -600,21 +600,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
 
   applyLanguage('tr');
-  document.getElementById('langToggle')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    applyLanguage(currentLang === 'tr' ? 'en' : 'tr');
-  });
+  const langToggleBtn = document.getElementById('langToggle');
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyLanguage(currentLang === 'tr' ? 'en' : 'tr');
+    });
+  }
 
   const searchForm = document.getElementById('siteSearchForm');
   const searchInput = document.getElementById('siteSearchInput');
-  searchForm?.addEventListener('submit', e => {
-    e.preventDefault();
-    runSearch(searchInput.value);
-  });
-  searchInput?.addEventListener('input', () => runSearch(searchInput.value));
+  if (searchForm && searchInput) {
+    searchForm.addEventListener('submit', e => {
+      e.preventDefault();
+      runSearch(searchInput.value);
+    });
+    searchInput.addEventListener('input', () => runSearch(searchInput.value));
+  }
   document.addEventListener('click', e => {
     if (!e.target.closest('.et-search') && !e.target.closest('.et-search-results')) {
-      document.getElementById('searchResults').classList.remove('show');
+      const res = document.getElementById('searchResults');
+      if (res) res.classList.remove('show');
     }
   });
 
@@ -663,54 +669,59 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       Logger.log('nav_click', { target: link.getAttribute('href') });
       const collapse = document.getElementById('navContent');
-      if (collapse.classList.contains('show')) {
+      if (collapse && collapse.classList.contains('show')) {
         bootstrap.Collapse.getOrCreateInstance(collapse).hide();
       }
     });
   });
 
   // WhatsApp click logging
-  document.querySelector('.et-whatsapp-btn')?.addEventListener('click', () => {
-    Logger.log('whatsapp_click');
-  });
+  const whatsappBtn = document.querySelector('.et-whatsapp-btn');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      Logger.log('whatsapp_click');
+    });
+  }
 
   // Contact form handling with Formspree AJAX
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      Logger.log('contact_form_invalid');
-      return;
-    }
-
-    status.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        Logger.log('contact_form_success');
-        status.textContent = currentLang === 'tr' ? 'Mesajınız başarıyla gönderildi, teşekkürler!' : 'Message sent successfully, thank you!';
-        form.reset();
-      } else {
-        Logger.log('contact_form_error', { status: response.status });
-        status.textContent = currentLang === 'tr' ? 'Form gönderilemedi (Formspree ID\'nizi kontrol edin).' : 'Failed to send (Check your Formspree ID).';
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        Logger.log('contact_form_invalid');
+        return;
       }
-    } catch (error) {
-      Logger.log('contact_form_network_error', { error: error.message });
-      status.textContent = currentLang === 'tr' ? 'Ağ hatası oluştu. Lütfen tekrar deneyin.' : 'Network error occurred. Please try again.';
-    }
 
-    setTimeout(() => { status.textContent = ''; }, 6000);
-  });
+      if (status) status.textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          Logger.log('contact_form_success');
+          if (status) status.textContent = currentLang === 'tr' ? 'Mesajınız başarıyla gönderildi, teşekkürler!' : 'Message sent successfully, thank you!';
+          form.reset();
+        } else {
+          Logger.log('contact_form_error', { status: response.status });
+          if (status) status.textContent = currentLang === 'tr' ? 'Form gönderilemedi (Formspree ID\'nizi kontrol edin).' : 'Failed to send (Check your Formspree ID).';
+        }
+      } catch (error) {
+        Logger.log('contact_form_network_error', { error: error.message });
+        if (status) status.textContent = currentLang === 'tr' ? 'Ağ hatası oluştu. Lütfen tekrar deneyin.' : 'Network error occurred. Please try again.';
+      }
+
+      setTimeout(() => { if (status) status.textContent = ''; }, 6000);
+    });
+  }
 });
 
 // 1. Preloader
@@ -749,9 +760,12 @@ window.addEventListener('scroll', () => {
   }
 });
 
-document.getElementById('et-btt')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+const bttBtnElement = document.getElementById('et-btt');
+if (bttBtnElement) {
+  bttBtnElement.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 /* ============ INTERACTIVE TERMINAL ============ */
 const termInput = document.getElementById('etTerminalInput');

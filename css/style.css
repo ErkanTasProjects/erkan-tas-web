@@ -436,12 +436,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Hero photo — floating 3D portrait with a spinning gradient halo */
 .et-hero-photo{
-  position: relative;
-  width: 280px; height: 280px;
-  margin: 0 auto;
-  border-radius: 50%;
-  /* Removed perspective and preserve-3d to fix iOS Safari GPU crash */
-}
+    position: relative;
+    width: 280px; height: 280px;
+    margin: 0 auto;
+    border-radius: 50%;
+    /* Removed perspective and preserve-3d to fix iOS Safari GPU crash */
+    animation: et-photo-float 6s ease-in-out infinite;
+  }
 .et-hero-photo::before{
   content:"";
   position:absolute; inset:-7px;

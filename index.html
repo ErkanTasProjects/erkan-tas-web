@@ -160,14 +160,28 @@
     <div class="collapse navbar-collapse" id="navContent">
       <ul class="navbar-nav mx-auto et-nav-links">
         <li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav_home">Anasayfa</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav_about">Hakkımda</a></li>
-        <li class="nav-item"><a class="nav-link" href="#experience" data-i18n="nav_experience">Deneyim</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hakkımda
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <li><a class="dropdown-item" href="#about" data-i18n="nav_about">Genel Bakış</a></li>
+            <li><a class="dropdown-item" href="#experience" data-i18n="nav_experience">Deneyim</a></li>
+            <li><a class="dropdown-item" href="#skills" data-i18n="nav_skills">Yetenekler</a></li>
+            <li><a class="dropdown-item" href="#certificates" data-i18n="nav_certs">Sertifikalar</a></li>
+            <li><a class="dropdown-item" href="#hobbies" data-i18n="nav_hobbies">Hobiler</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="nav_projects">Projeler</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="nav_skills">Yetenekler</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certificates" data-i18n="nav_certs">Sertifikalar</a></li>
-        <li class="nav-item"><a class="nav-link" href="#hobbies" data-i18n="nav_hobbies">Hobiler</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faq" data-i18n="nav_faq">S.S.S.</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav_contact">İletişim</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            İletişim
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+            <li><a class="dropdown-item" href="#faq" data-i18n="nav_faq">S.S.S.</a></li>
+            <li><a class="dropdown-item" href="#contact" data-i18n="nav_contact">Bana Ulaşın</a></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="d-flex align-items-center et-nav-tools">
@@ -264,7 +278,7 @@
         <div class="et-hero-cta">
           <a href="#projects" class="btn et-btn-primary" data-i18n="hero_cta1">Projelerimi Gör</a>
           <a href="#contact" class="btn et-btn-outline" data-i18n="hero_cta2">İletişime Geç</a>
-          <a href="assets/ErkanTas_CV.html" target="_blank" class="btn et-btn-outline" data-i18n="hero_cta_cv">CV Görüntüle</a>
+          <a href="assets/ErkanTas_CV.html" download="Erkan_Tas_CV.html" class="btn et-btn-outline"><i class="bi bi-download me-2"></i>CV İndir</a>
         </div>
       </div>
       <div class="col-lg-5 text-center">

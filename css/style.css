@@ -1391,3 +1391,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Lighthouse Mobile 100/100 Hack: Disable preloader on mobile */
 @media (max-width: 768px) { #et-preloader { display: none !important; } }
+
+/* Dropdown Styling */
+.dropdown-menu { background-color: var(--et-panel); border: 1px solid var(--et-border); border-radius: var(--et-radius); box-shadow: 0 10px 30px var(--et-shadow); padding: 0.5rem; margin-top: 0.5rem; }
+.dropdown-item { color: var(--et-text); border-radius: 6px; padding: 0.5rem 1rem; transition: all 0.2s ease; }
+.dropdown-item:hover, .dropdown-item:focus { background-color: rgba(45, 212, 191, 0.1); color: var(--et-teal); }

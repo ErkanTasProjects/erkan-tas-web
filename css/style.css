@@ -789,49 +789,63 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 0 1.4rem 1.4rem;
 }
 
-/* =================== BOOK CARDS (NEW) =================== */
-.et-book-card {
+/* =================== SERVICES CARDS (NEW) =================== */
+.et-service-card {
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 3;
   background: linear-gradient(135deg, var(--et-dark) 0%, #151a22 100%);
   border: 1px solid var(--et-border);
-  border-radius: 4px 12px 12px 4px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: -5px 10px 20px rgba(0,0,0,0.5), inset 2px 0 10px rgba(255,255,255,0.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5), inset 2px 0 10px rgba(255,255,255,0.05);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.5rem;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  padding: 2.5rem 1.5rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   cursor: pointer;
   margin-bottom: 2rem;
+  z-index: 1;
 }
-.et-book-card:hover {
-  transform: translateY(-10px) rotateY(-5deg) scale(1.02);
-  box-shadow: -10px 20px 30px rgba(0,0,0,0.7), inset 2px 0 10px rgba(255,255,255,0.1);
+.et-service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.7), inset 2px 0 10px rgba(255,255,255,0.1);
   border-color: var(--et-teal);
 }
-.et-book-spine {
+.et-service-card::before {
+  content: '';
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 12px;
-  background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(0,0,0,0.4), rgba(255,255,255,0.05));
-  border-right: 1px solid rgba(0,0,0,0.5);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(45, 212, 191, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
 }
-.et-book-cover h4 {
-  font-size: 1.1rem;
+.et-service-card:hover::before {
+  opacity: 1;
+}
+.et-service-icon {
+  font-size: 3rem;
   color: var(--et-teal);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s ease;
+}
+.et-service-card:hover .et-service-icon {
+  transform: scale(1.1) translateY(-5px);
+}
+.et-service-title {
+  font-size: 1.25rem;
+  color: var(--et-text);
+  margin-bottom: 1rem;
   font-family: var(--font-heading);
 }
-.et-book-cover p {
-  font-size: 0.85rem;
+.et-service-desc {
+  font-size: 0.95rem;
   color: var(--et-text-muted);
   font-family: var(--font-body);
+  line-height: 1.6;
 }
 
 /* Contact */

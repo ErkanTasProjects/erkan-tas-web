@@ -44,7 +44,8 @@ const i18n = {
     search_placeholder: "Sitede ara...",
     hero_eyebrow: "MERHABA, BEN",
     hero_role_1: "Siyaset Bilimi ve Uluslararası İlişkiler",
-    hero_role_2: "Web Tasarımı ve Kodlama",
+    hero_role_2: "Modern Web Tasarımı",
+    hero_role_3: "Profesyonel Kodlama & Yazılım",
     hero_sub: "Uluslararası ilişkiler alanındaki analitik bakış açımı, yazılım geliştirme disiplinindeki teknik yetkinlikle birleştiriyorum.",
     hero_tag: "Sürekli çözüm üreten, yenilikçi ve iş odaklı bir yaklaşımla çalışıyorum.",
     hero_cta1: "Projelerimi Gör", hero_cta2: "İletişime Geç", hero_cta_cv: "CV Görüntüle",
@@ -118,7 +119,8 @@ const i18n = {
     search_placeholder: "Search the site...",
     hero_eyebrow: "HELLO, I'M",
     hero_role_1: "Political Science and International Relations",
-    hero_role_2: "Web Design and Coding",
+    hero_role_2: "Modern Web Design",
+    hero_role_3: "Professional Coding & Software",
     hero_sub: "I combine an analytical perspective in international relations with technical competence in software development.",
     hero_tag: "I work with a consistently solution-driven, innovative and business-focused approach.",
     hero_cta1: "View My Projects", hero_cta2: "Get In Touch", hero_cta_cv: "View CV",
@@ -223,7 +225,7 @@ let typeWriterTimeout = null;
 function typeWriter() {
   const el = document.getElementById('heroCycleText');
   if (!el) return;
-  const currentKey = typeWriterIndex === 0 ? 'hero_role_1' : 'hero_role_2';
+  const currentKey = 'hero_role_' + (typeWriterIndex + 1);
   const fullText = i18n[currentLang][currentKey];
   
   if (isDeleting) {
@@ -241,7 +243,7 @@ function typeWriter() {
     isDeleting = true;
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
-    typeWriterIndex = (typeWriterIndex + 1) % 2;
+    typeWriterIndex = (typeWriterIndex + 1) % 3;
     // Switch background when typing starts for new text
     const hero = document.querySelector('.et-hero');
     if (hero) {

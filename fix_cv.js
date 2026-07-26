@@ -1,0 +1,1 @@
+const fs = require('fs'); const base64 = fs.readFileSync('assets/profile.webp').toString('base64'); let c = fs.readFileSync('assets/ErkanTas_CV.html', 'utf8'); c = c.replace('https://erkantas.dev/assets/profile.webp', 'data:image/webp;base64,' + base64); fs.writeFileSync('assets/ErkanTas_CV.html', c);

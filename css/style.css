@@ -848,6 +848,95 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   line-height: 1.6;
 }
 
+/* =================== STATS CARDS (NEW) =================== */
+.et-stat-box {
+  background: var(--et-panel);
+  border: 1px solid var(--et-border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.et-stat-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--et-teal);
+}
+.et-stat-num {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--et-teal);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+.et-stat-text {
+  font-size: 0.95rem;
+  color: var(--et-text-muted);
+}
+
+/* =================== PRICING CARDS (NEW) =================== */
+.et-pricing-card {
+  background: var(--et-panel);
+  border: 1px solid var(--et-border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.et-pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  border-color: var(--et-teal);
+}
+.et-pricing-card.featured {
+  background: linear-gradient(135deg, var(--et-dark) 0%, #111a22 100%);
+  border-color: var(--et-teal);
+}
+.et-pricing-badge {
+  position: absolute;
+  top: 15px; right: -35px;
+  background: var(--et-teal);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 3rem;
+  transform: rotate(45deg);
+  text-transform: uppercase;
+}
+.et-pricing-title {
+  font-size: 1.4rem;
+  color: var(--et-text);
+  margin-bottom: 1rem;
+}
+.et-pricing-price {
+  font-size: 2.5rem;
+  color: var(--et-teal);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.et-pricing-price span {
+  font-size: 1rem;
+  color: var(--et-text-muted);
+  font-weight: 400;
+}
+.et-pricing-features {
+  list-style: none;
+  padding: 0; margin: 0 0 2rem;
+  text-align: left;
+}
+.et-pricing-features li {
+  margin-bottom: 0.8rem;
+  color: var(--et-text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.et-pricing-features li i {
+  color: var(--et-teal);
+}
+
 /* Contact */
 .et-contact-list{ list-style:none; padding:0; margin:0 0 1.6rem; }
 .et-contact-list li{
